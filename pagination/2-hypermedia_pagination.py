@@ -58,10 +58,14 @@ class Server:
         assert page > 0 and page_size > 0, "page and page_size must be > 0, \
             got{}, {}".format(page, page_size)
 
+        # a list of rows for the requested page
         data = self.get_page(page, page_size)
+        # the number of items actually returned on this requested page
         actual_size = len(data)
+        # the total number of rows in the dataset
         total_items = len(self.dataset())
 
+        # actual_size can be 0 for empty dataset or out-of-range pages
         if actual_size > 0:
             total_pages = math.ceil(total_items / page_size)
         else:
