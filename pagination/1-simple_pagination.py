@@ -35,15 +35,20 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
         Load and cache the dataset from the CSV file if not already loaded.
+        Return: a list of lists
+                outer list: all rows from the current list
+                inner list: all columns from each row in the CSV file
         """
         assert isinstance(page, int) and isinstance(
             page_size, int), "page and page_size must be integers"
         assert page > 0 and page_size > 0, "page and page_size must be > 0, \
             got{}, {}".format(page, page_size)
 
+        # calculate the start and end indexes
         start, end = index_range(page, page_size)
-        # call dataset() method and make sure the CSV file is loaded
+        # load the data into a list of rows, where each row is a list of items from CSV file
         data = self.dataset()
+        
         if start >= len(data):
             return []
         return data[start: end]
