@@ -132,11 +132,10 @@ mongoctl stop      # Stop MongoDB
 mongoctl restart   # Restart MongoDB
 ```
 
-### 🔍 Connecting & Verifying
+## Installing `pymongo` for MongoDB 3.6.x
 
-After starting MongoDB, connect using the MongoDB Shell:
+Run the following command in your environment or container:
 
 ```bash
-mongosh          # Connect to localhost:27017
-show dbs         # List databases
+pip3 install pymongo==3.12.3
 ```
