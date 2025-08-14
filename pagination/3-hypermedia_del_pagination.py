@@ -83,9 +83,12 @@ class Server:
         # track where we are
         current_index = index
 
+        # len(data) < page_size keeps looping until we get enough rows for the current page
+        # current_index <= max_index ensures we don't fetch beyond the lest available index
         while len(data) < page_size and current_index <= max_index:
             # check whether current_index still exists in the dataset
             if current_index in indexed:
+                # add actual row of data from dataset into list data, which stores all rows for the current page
                 data.append(indexed[current_index])
             # move to the next row whether current_row was valid or not
             current_index += 1

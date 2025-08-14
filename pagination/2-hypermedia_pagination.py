@@ -81,9 +81,11 @@ class Server:
         else:
             prev_page = None
 
-        return {"page_size": actual_size,
-                "page": page,
-                "data": data,
-                "next_page": next_page,
-                "prev_page": prev_page,
-                "total_pages": total_pages}
+        return {
+            "page_size": actual_size,
+            "page": page,
+            "data": data,
+            "next_page": next_page,
+            "prev_page": prev_page,
+            "total_pages": total_pages
+        }
