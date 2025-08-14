@@ -17,8 +17,8 @@ set -euo pipefail
 # Fixed paths for MongoDB 3.6.3 in Holberton container
 MONGOD_BIN="/opt/mongo363/bin/mongod"
 MONGO_BIN="/opt/mongo363/bin/mongo"
-DBPATH="/var/lib/mongodb363"
-LOGDIR="/var/log/mongodb363"
+DBPATH="/mnt/mongo-data/db"
+LOGDIR="/mnt/mongo-data/log"
 LOGFILE="\$LOGDIR/mongod.log"
 PORT=27017
 
