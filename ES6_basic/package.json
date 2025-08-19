@@ -4,8 +4,7 @@
   "description": "ES6_basic",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run _dev --silent",
-    "_dev": "node",
+    "dev": "node",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
