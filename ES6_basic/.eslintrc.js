@@ -1,4 +1,3 @@
-/* eslint-disable */
 module.exports = {
   env: {
     browser: false,
@@ -16,9 +15,14 @@ module.exports = {
   },
   plugins: ['jest'],
   rules: {
+    'max-classes-per-file': 'off',
+    'no-underscore-dangle': 'off',
     'no-console': 'off',
     'no-shadow': 'off',
-    'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement']
+    'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement'],
+    'import/extensions': 'off',
+    'new-cap': 'off',
+    'prettier/prettier': 'off'
   },
   overrides: [
     {
