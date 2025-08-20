@@ -6,3 +6,7 @@ export default function getNeighborhoodsList() {
     return this.sanFranciscoNeighborhoods;
   };
 }
+
+// this: the current obj;
+// this.addNeighborhood: a method added to the obj;
+// newNeighborhood: the input argument, a new Neighborhood to be added
