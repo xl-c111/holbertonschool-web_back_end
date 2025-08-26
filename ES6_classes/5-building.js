@@ -35,3 +35,9 @@ export default class Building {
     );
   }
 }
+
+// this.constructor !== Building means it's not created directly from Building class itself, it's subclass obj
+// this.evacuationWarningMessage looks up the evacuationWarningMessage method on current instance
+// prototype is where class methods live
+// compare the two function reference, if they are same, that means subclass didn't override the method
+// if they are different, subclass did provides its implement
