@@ -12,6 +12,11 @@ export default class Car {
     this._color = color;
   }
 
+  // for Car, the species is Car, for any subclass, the species is the subclass itself
+  static get [Symbol.species]() {
+    return this;
+  }
+
   cloneCar() {
     return new this.constructor(this._brand, this._motor, this._color);
   }
