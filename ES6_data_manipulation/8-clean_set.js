@@ -2,6 +2,8 @@ export default function cleanSet(set, startString) {
   if (!(set instanceof Set)) {
     throw new TypeError('set must be a Set');
   }
+  // checks startString is not a string(e,g. [], {}, 123) or startString is empty
+  // (!startString) only checks empty string and undefined-like cases
   if (typeof startString !== 'string' || startString.length === '') {
     return '';
   }
