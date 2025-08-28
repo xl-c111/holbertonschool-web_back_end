@@ -48,7 +48,7 @@ create_project() {
   cat > package.json <<'JSON'
 {
   "scripts": {
-    "lint": "./node_modules/.bin/eslint",
+    "lint": "eslint .",
     "check-lint": "lint [0-9]*.js",
     "dev": "npx babel-node",
     "test": "jest",
@@ -89,6 +89,7 @@ module.exports = {
   env: {
     browser: false,
     es6: true,
+    node: true,
     jest: true,
   },
   extends: [
@@ -103,19 +104,25 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['jest'],
+  plugins: ['jest', 'import'],
+  settings: {
+    'import/resolver': {
+      node: { extensions: ['.js', '.mjs', '.jsx'] },
+    },
+  },
   rules: {
     'max-classes-per-file': 'off',
     'no-underscore-dangle': 'off',
     'no-console': 'off',
     'no-shadow': 'off',
-    'no-restricted-syntax': [
-      'error',
-      'LabeledStatement',
-      'WithStatement',
-    ],
+    'no-restricted-syntax': ['error', 'LabeledStatement', 'WithStatement'],
+    'import/extensions': ['error', 'ignorePackages', {
+      js: 'always',
+      mjs: 'always',
+      jsx: 'always',
+    }],
   },
-  overrides:[
+  overrides: [
     {
       files: ['*.js'],
       excludedFiles: 'babel.config.js',
