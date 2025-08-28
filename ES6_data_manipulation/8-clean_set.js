@@ -6,7 +6,7 @@ export default function cleanSet(set, startString) {
     throw new TypeError('startString must be a string');
   }
 
-  if (startString === '') {
+  if (!startString) {
     return '';
   }
 
