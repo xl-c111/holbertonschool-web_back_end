@@ -2,7 +2,7 @@ export default function cleanSet(set, startString) {
   if (!(set instanceof Set)) {
     throw new TypeError('set must be a Set');
   }
-  if (!startString) {
+  if (typeof startString !== 'string' || startString.length === '') {
     return '';
   }
 
