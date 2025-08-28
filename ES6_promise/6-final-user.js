@@ -11,6 +11,13 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
       new TypeError('firstName, lastName, fileName should be string'),
     );
   }
+
   const promises = [signUpUser(firstName, lastName), uploadPhoto(fileName)];
-  return Promise.allSettled(promises);
+
+  return Promise.allSettled(promises).then((results) => results.map((result) => {
+    if (result.status === 'fulfilled') {
+      return { status: result.status, value: result.value };
+    }
+    return { status: result.status, value: result.reason.toString() };
+  }));
 }
