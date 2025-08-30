@@ -8,7 +8,7 @@ const grocerieslist = [
   'Rice',
   1,
   'Banana',
-  5,
+  5
 ];
 
 export default function groceriesList() {
