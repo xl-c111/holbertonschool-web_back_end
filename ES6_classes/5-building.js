@@ -6,12 +6,12 @@ export default class Building {
     this._sqft = sqft;
 
     if (
-      this.constructor !== Building &&
-      this.evacuationWarningMessage ===
-        Building.prototype.evacuationWarningMessage
+      this.constructor !== Building
+      && this.evacuationWarningMessage
+        === Building.prototype.evacuationWarningMessage
     ) {
       throw new Error(
-        'Class extending Building must override evacuationWarningMessage'
+        'Class extending Building must override evacuationWarningMessage',
       );
     }
   }
@@ -31,7 +31,7 @@ export default class Building {
   // abstract method placeholder
   evacuationWarningMessage() {
     throw new Error(
-      'Class extending Building must override evacuationWarningMessage'
+      'Class extending Building must override evacuationWarningMessage',
     );
   }
 }
