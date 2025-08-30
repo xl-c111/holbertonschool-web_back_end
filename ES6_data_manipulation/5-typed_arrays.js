@@ -1,8 +1,8 @@
 export default function createInt8TypedArray(length, position, value) {
   if (
-    typeof length !== 'number' ||
-    typeof position !== 'number' ||
-    typeof value !== 'number'
+    typeof length !== 'number'
+    || typeof position !== 'number'
+    || typeof value !== 'number'
   ) {
     throw new TypeError('length, position and value must be a number');
   }

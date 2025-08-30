@@ -1,7 +1,7 @@
 export default function updateStudentGradeByCity(
   studentslist,
   city,
-  newGrades
+  newGrades,
 ) {
   if (!Array.isArray(studentslist) || !Array.isArray(newGrades)) {
     return [];
@@ -12,13 +12,13 @@ export default function updateStudentGradeByCity(
     const newGrade = newGrades.find(
       // this is a callback function, for each newGrade, checks whether newGrade.StudentId equals Student.id.
       // returns true if they are equal
-      (newGrade) => newGrade.studentId === student.id
+      (newGrade) => newGrade.studentId === student.id,
     );
     return {
       id: student.id,
       firstName: student.firstName,
       location: student.location,
-      grade: newGrade ? newGrade.grade : 'N/A'
+      grade: newGrade ? newGrade.grade : 'N/A',
     };
   });
 }
