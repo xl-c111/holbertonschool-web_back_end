@@ -9,3 +9,11 @@ export default async function asyncUploadUser() {
     return { photo: null, user: null };
   }
 }
+
+// try {
+//     // Using Array Destructuring
+//     const [photo, user] = await Promise.all([uploadPhoto(), createUser()]);
+//     return { photo, user };
+//   } catch (error) {
+//     return { photo: null, user: null };
+//   }
