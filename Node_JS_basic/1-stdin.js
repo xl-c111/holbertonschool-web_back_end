@@ -2,11 +2,16 @@ process.stdin.setEncoding('utf8');
 
 console.log('Welcome to Holberton School, what is your name?');
 
-process.stdin.on('data', (input) => {
-  const name = input.trim();
-  console.log(`Your name is: ${name}`);
-  if (!process.stdin.isTTY) {
+if (process.stdin.isTTY) {
+  process.stdin.on('data', (input) => {
+    console.log(`Your name is: ${input.trim()}`);
+    process.exit(0);
+  });
+} else {
+  process.stdin.on('data', (input) => {
+    console.log(`Your name is: ${input.trim()}`);
+  });
+  process.stdin.on('end', () => {
     console.log('This important software is now closing');
-  }
-  process.exit();
-});
+  });
+}
