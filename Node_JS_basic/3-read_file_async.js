@@ -2,12 +2,16 @@ const fs = require('fs').promises;
 
 async function countStudents(path) {
   try {
+    // await, unwrap the Promise and give me the value it resolves to
+    // if file is read successfully, Promise resolves with a string
+    // if not, Promise reject with an Error object
     const data = await fs.readFile(path, 'utf8');
     const lines = data.trim().split('\n');
     const students = lines.slice(1);
 
     console.log(`Number of students: ${students.length}`);
 
+    // create a new object to store key: value pairs
     const fieldStudents = {};
 
     students.forEach((line) => {
@@ -28,3 +32,5 @@ async function countStudents(path) {
   }
 }
 module.exports = countStudents;
+
+// Object.entries(obj): loop through all key: value pairs, returns an array of arrays
