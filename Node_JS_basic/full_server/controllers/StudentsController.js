@@ -23,19 +23,19 @@ class StudentsController {
     const { major } = request.params;
     const filepath = process.argv[2];
 
-    if (major !== 'CS' && major !== 'SWE') {
+    if (!major || (major !== 'CS' && major !== 'SWE')) {
       response.status(500).type('text').send('Major parameter must be CS or SWE');
+    } else {
+      readDatabase(filepath)
+        .then((fieldStudents) => {
+          const students = fieldStudents[major] || [];
+          const names = students.join(', ');
+          return response.status(200).type('text').send(`List: ${names}`);
+        })
+        .catch(() => {
+          response.status(500).type('text').send(`${prefix}Cannot load the database`);
+        });
     }
-
-    readDatabase(filepath)
-      .then((fieldStudents) => {
-        const students = fieldStudents[major] || [];
-        const names = students.join(', ');
-        return response.status(200).type('text').send(`List: ${names}`);
-      })
-      .catch(() => {
-        response.status(500).type('text').send(`${prefix}Cannot load the database`);
-      });
   }
 }
 
