@@ -14,12 +14,11 @@ class StudentsController {
         response.status(200).type('text').send(output.trim());
       })
       .catch(() => {
-        response.status(500).type('text').send(`${prefix}Cannot load the database`);
+        response.status(500).type('text').send('Cannot load the database');
       });
   }
 
   static getAllStudentsByMajor(request, response) {
-    const prefix = 'This is the list of our students\n';
     const { major } = request.params;
     const filepath = process.argv[2];
 
