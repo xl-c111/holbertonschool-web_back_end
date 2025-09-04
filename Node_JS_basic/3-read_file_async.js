@@ -35,7 +35,7 @@ async function countStudents(path) {
       console.log(line);
       output += `${line}\n`;
     }
-    return output.trim();
+    return output;
   } catch (error) {
     throw new Error('Cannot load the database');
   }
