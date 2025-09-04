@@ -33,7 +33,7 @@ class StudentsController {
           return response.status(200).type('text').send(`List: ${names}`);
         })
         .catch(() => {
-          response.status(500).type('text').send(`${prefix}Cannot load the database`);
+          response.status(500).type('text').send('Cannot load the database');
         });
     }
   }
