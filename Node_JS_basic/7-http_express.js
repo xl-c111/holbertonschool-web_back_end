@@ -9,14 +9,16 @@ app.get('/', (request, response) => {
 });
 
 app.get('/students', (request, response) => {
+  const prefix = 'This is the list of our students\n';
   countStudents(process.argv[2])
     .then((output) => {
-      const message = `This is the list of our students\n${output}`;
-      response.type('text');
-      response.send(message);
+      response.type('text').send(prefix + output);
     })
     .catch(() => {
-      response.status(500).send('Cannot load the database');
+      response
+        .status(500)
+        .type('text')
+        .send(`${prefix}Cannot load the database`);
     });
 });
 
