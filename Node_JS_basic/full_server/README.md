@@ -29,6 +29,14 @@ full_server/
 
 ---
 
+## 🔄 Server Logic Flow
+
+📥 [Download Improved Logic Flow (PNG)](full_server_logic_flow_improved.png)
+
+![Improved Logic Flow](full_server_logic_flow_improved.png)
+
+---
+
 ## 📄 File Explanations
 
 ### 1. `controllers/`
@@ -135,3 +143,5 @@ curl localhost:1245/students/CS
 curl localhost:1245/students/French
 # → Major parameter must be CS or SWE
 ```
+
+---
