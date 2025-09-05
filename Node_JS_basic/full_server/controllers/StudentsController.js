@@ -19,7 +19,8 @@ class StudentsController {
   }
 
   static getAllStudentsByMajor(request, response) {
-    // request is the whole HTTP object, params is a property of it, containing only route parameters extracted from URL path
+    // request is the whole HTTP object, params is a property of it
+    // params itself is plain js object, containing key-value pairs for route parameters extracted from URL path
     const { major } = request.params;
     const filepath = process.argv[2];
 
