@@ -19,6 +19,7 @@ class StudentsController {
   }
 
   static getAllStudentsByMajor(request, response) {
+    // request is the whole HTTP object, params is a property of it, containing only route parameters extracted from URL path
     const { major } = request.params;
     const filepath = process.argv[2];
 
@@ -27,7 +28,10 @@ class StudentsController {
     } else {
       readDatabase(filepath)
         .then((fieldStudents) => {
+          // extract the value for the key major from the object fieldStudents
+          // if no students exists, then use an empty string instead
           const students = fieldStudents[major] || [];
+          // students is an array, .join() takes all the elements in the array and converts them into a single string
           const names = students.join(', ');
           return response.status(200).type('text').send(`List: ${names}`);
         })
